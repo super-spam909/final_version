@@ -1,16 +1,27 @@
 {% extends 'todo/main.html' %}
 
 {% block content %}
-<div class="header-bar">
-    <h1>Login</h1>
+    <!--showcase-->
+    <div class="container centered">
+        <div>
+            <h1 class="text-center text-warning"> Log In </h1>
+        </div>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
 
-</div>
-<div class="card-body">
-    <form action="" method="post"> 
-        {%  csrf_token %}
-        {{form.as_p}}
-        <input class="button" type="submit" value = "login">
-    <small><p>Don't have an account yet?<a href="{% url 'register' %}"> Register</a></p> </small>
-    </form>
-</div>
-{% endblock content %}
+            <div class="mb-3">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="mb-3 text-center">
+                <a href="{% url 'task' %}"></a>
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </div>
+        </form>
+        <p class="text-center">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+    </div>
+{% endblock %}

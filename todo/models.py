@@ -14,3 +14,11 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['complete']
+
+class Signup(models.Model):
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    name = models.CharField(max_length=200,null=False,blank=True)
+
+def __str__(self):
+        return self.title
